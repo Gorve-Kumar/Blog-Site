@@ -8,5 +8,7 @@ It offers a robust and dynamic environment for creating, managing, and sharing c
 Instructions: To run the project.
 
 On terminal
+<br>
 1 - >> npm install
+<br>
 2 - >> node app or nodemon app
