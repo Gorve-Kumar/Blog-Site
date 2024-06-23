@@ -1,0 +1,19 @@
+{
+  "name": "node_learning",
+  "version": "1.0.0",
+  "description": "learning phase for 10Pearls",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server",
+    "start": "node server.js"
+  },
+  "author": "Gorve Kumar",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "lodash": "^4.17.21",
+    "mongoose": "^8.4.3",
+    "morgan": "^1.10.0"
+  }
+}

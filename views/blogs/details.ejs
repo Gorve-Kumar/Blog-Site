@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head.ejs') %>
+    <body>
+        <!-- Navbar -->
+        <%- include('../partials/nav.ejs') %>
+
+        <div class="details content">
+            <h2><%= blog.title %></h2>
+            <div class="content">
+                <p><%= blog.body %></p>
+            </div>
+            <a class="delete" data-doc='<%= blog._id  %>'>
+                <img class="trashcan" src="/trashcan.jpg" alt="delete icon">
+            </a>
+        </div>
+    </body>
+
+    <%- include('../partials/footer.ejs') %>
+
+    <script>
+        // RUNS ON BROWSER
+        const trashcan = document.querySelector('a.delete');
+
+        trashcan.addEventListener("click",(event) => {
+            const endpoint = `/blogs/${trashcan.dataset.doc}`;
+
+            fetch(endpoint, {
+                method: 'DELETE',
+            }) // option object
+                .then((response)=>{ // we get JSON data as a response
+                    response.json()
+                            .then((data) => {
+                                console.log(data);
+                                window.location.href = data.redirect;
+                            })
+                            .catch((error) => {
+                                console.log(error);
+                            })
+                })
+                .catch((error)=>{
+                    console.log(error);
+                });
+        })
+    </script>
+</html>

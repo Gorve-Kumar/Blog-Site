@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Header -->
+    <%- include('../partials/head.ejs') %>
+    <body>
+        <!-- Embed EJS script here -->
+        <!-- Navbar -->
+        <%- include('../partials/nav.ejs') %>
+        <!-- with = sign, we skip special characters and we end up with string value instead of raw HTML -->
+
+        <div class="blogs content">
+            <h2>All Blogs</h2>
+
+            <% if (blogs.length > 0){ %>
+                <% blogs.forEach(blog => { %>
+
+                    <a class="single" href="/blogs/<%= blog._id %>">
+                        <h3 class="title"><%= blog.title %></h3>
+                        <p class="snippet"><%= blog.snippet %></p>
+                    </a>
+                <% }); %>
+            <% } else { %>
+                <p>There are no blogs to display!!</p>
+            <% } %>
+        </div>
+    </body>
+    <%- include('../partials/footer.ejs') %>
+</html>
